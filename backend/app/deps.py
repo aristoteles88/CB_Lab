@@ -3,12 +3,12 @@ from fastapi.security import OAuth2PasswordBearer
 from jose import JWTError, jwt
 from .database import SessionLocal
 from . import models
-import os
 
 from .config import SECRET_KEY, ALGORITHM
 
 SECRET_KEY = SECRET_KEY
 ALGORITHM = ALGORITHM
+
 
 def get_db():
     db = SessionLocal()
@@ -17,9 +17,10 @@ def get_db():
     finally:
         db.close()
 
+
 def get_current_user(
-        token: str = Depends(OAuth2PasswordBearer(tokenUrl="token"))
-    ):
+    token: str = Depends(OAuth2PasswordBearer(tokenUrl="token"))
+):
     credentials_exception = HTTPException(
         status_code=status.HTTP_401_UNAUTHORIZED,
         detail="Não foi possível validar as credenciais.",
@@ -33,12 +34,15 @@ def get_current_user(
         return email
     except JWTError:
         raise credentials_exception
-    
+
+
 def superuser_required(
-        current_user_email: str = Depends(get_current_user),
-        db = Depends(get_db)
-    ):
-    user = db.query(models.User).filter(models.User.email == current_user_email).first()
+    current_user_email: str = Depends(get_current_user),
+    db=Depends(get_db)
+):
+    user = db.query(models.User)\
+        .filter(models.User.email == current_user_email)\
+        .first()
     if not user or not user.is_superuser:
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
