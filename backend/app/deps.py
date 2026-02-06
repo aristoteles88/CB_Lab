@@ -5,8 +5,10 @@ from .database import SessionLocal
 from . import models
 import os
 
-SECRET_KEY = os.getenv("SECRET_KEY")
-ALGORITHM = os.getenv("ALGORITHM")
+from .config import SECRET_KEY, ALGORITHM
+
+SECRET_KEY = SECRET_KEY
+ALGORITHM = ALGORITHM
 
 def get_db():
     db = SessionLocal()

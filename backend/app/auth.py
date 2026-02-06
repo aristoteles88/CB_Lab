@@ -3,10 +3,12 @@ import os
 from jose import JWTError, jwt
 from passlib.context import CryptContext
 
+from .config import SECRET_KEY, ALGORITHM
+
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
-SECRET_KEY = os.getenv("SECRET_KEY")
-ALGORITHM = os.getenv("ALGORITHM")
+SECRET_KEY = SECRET_KEY
+ALGORITHM = ALGORITHM
 
 def hash_password(password: str):
     return pwd_context.hash(password)
