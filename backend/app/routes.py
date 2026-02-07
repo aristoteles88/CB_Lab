@@ -13,7 +13,7 @@ token_router = APIRouter(tags=["Autenticação"])
         description=""""
             Autentica o usuário e retorna um token JWT
             para acesso às rotas protegidas.
-        """,
+        """
     )
 def login(
     form_data: OAuth2PasswordRequestForm = Depends(),

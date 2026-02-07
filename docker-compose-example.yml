@@ -26,10 +26,17 @@ services:
       dockerfile: Dockerfile
     container_name: cb_lab_backend
     environment:
-      DATABASE_URL: postgresql://DB_USER:DB_PASSWORD@postgres:5432/DB_NAME
+      DATABASE_USER: DB_USER
+      DATABASE_PASSWORD: DB_PASSWORD
+      DATABASE_NAME: DB_NAME
+      DATABASE_HOST: DB_HOST
       SECRET_KEY: SECRET_KEY
       ALGORITHM: HS256
       ACCESS_TOKEN_EXPIRE_MINUTES: 30
+      ## Definições de superusuário para criação automática
+      # SUPERUSER_NAME: SU_NAME  # Default: Admin
+      # SUPERUSER_EMAIL: SU_EMAIL  # Default: admin@cb-lab.com
+      # SUPERUSER_PWD: SU_PASSWORD  # Default: admin123 
     ports:
       - "8000:8000"
     depends_on:
