@@ -1,0 +1,21 @@
+.alert-header {
+  padding: 16px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+.alert-header h2 { 
+    margin: 0; 
+    font-size: 18px; 
+    -webkit-text-fill-color: white;
+}
+.alert-body { padding: 16px 20px; color: #333; }
+.alert-footer { padding: 12px 20px; text-align: right; }
+.btn-ok {
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.btn-ok:hover { transform: translateY(-2px); box-shadow: 0 6px 14px rgba(102,126,234,0.3); }

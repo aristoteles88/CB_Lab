@@ -1,0 +1,31 @@
+<div class="modal-header">
+  <h2>Criar Novo Usuários</h2>
+</div>
+
+<div class="modal-content">
+    <div class="create-user-container">
+        <form (ngSubmit)="createUser()" class="create-user-form">
+            <div>
+                <label for="name">Nome:</label><br>
+                <input type="text" id="name" [(ngModel)]="name" name="name" required>
+            </div>
+            <div>
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" [(ngModel)]="email" name="email" required>
+            </div>
+            <div>
+                <label for="password">Senha:</label><br>
+                <input type="password" id="password" [(ngModel)]="password" name="password" required>
+            </div>
+            <div>
+                <label for="is_superuser">Superusuário:</label><br>
+                <input type="checkbox" id="is_superuser" [(ngModel)]="is_superuser" name="is_superuser">
+            </div>
+            <button type="submit">Criar</button>
+        </form>
+    </div>
+</div>
+
+<div class="modal-footer">
+  <button class="btn-close" (click)="closeDialog()">Fechar</button>
+</div>

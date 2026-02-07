@@ -1,0 +1,28 @@
+<div class="modal-header">
+  <h2>Lista de Usuários</h2>
+</div>
+
+<div class="modal-content">
+  <table class="users-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Superuser</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.is_superuser ? 'Sim' : 'Não' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="modal-footer">
+  <button class="btn-close" (click)="closeDialog()">Fechar</button>
+</div>

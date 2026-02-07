@@ -1,0 +1,17 @@
+<div>
+    <h2>CB - Lab</h2>
+    <h3>Login</h3>
+    <div class="login-container">
+        <form class="login-form">
+            <div>
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" [(ngModel)]="email" name="email" value="admin@cb-lab.com" required>
+            </div>
+            <div>
+                <label for="password">Password:</label><br>
+                <input type="password" id="password" [(ngModel)]="password" name="password" value="admin123" required (keyup.enter)="loginWithPassword(email, password)">
+            </div>
+            <button type="button" (click)="loginWithPassword(email, password)">Login</button>
+        </form>
+    </div>
+</div>
