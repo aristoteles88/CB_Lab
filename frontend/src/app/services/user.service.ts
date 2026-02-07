@@ -9,7 +9,7 @@ export class UserService {
   private apiUrl = environment.apiUrl;
 
   getMe() {
-    const url = `${this.apiUrl}/users/me`;
+    const url = `${this.apiUrl}/users/me/`;
     const token = localStorage.getItem('access_token');
     
     return this.http.get(url, {
